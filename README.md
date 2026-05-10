@@ -1,6 +1,8 @@
 # Laboratório de Testes de Penetração: Ataques de Força Bruta
 
-## Objetivos do Lab
+<br>
+
+## 🎯 Objetivos do Lab
 
 O objetivo deste laboratório é simular ataques de força bruta e password spraying em serviços vulneráveis (FTP e SMB) utilizando o Kali Linux como plataforma de ataque e o Metasploitable 2 como alvo. Os testes visam:
 
@@ -8,11 +10,16 @@ O objetivo deste laboratório é simular ataques de força bruta e password spra
 - Praticar técnicas de enumeração e ataque de força bruta.
 - Documentar o processo para fins educacionais e de auditoria.
 
----
+<br>
 
-## Configuração de Rede das VMs
+## 🌐 Configuração de Rede das VMs
 
 As VMs utilizadas neste laboratório foram configuradas em uma rede interna privada (`dio-kalilab`) para garantir isolamento e segurança durante os testes.
+
+|Máquina|Sistema Operacional|IP Estático|Função|
+|-------|-------------------|-----------|------|
+|Atacante|Kali Linux|10.0.0.10|Execução de ferramentas e ataques|
+|Alvo|Metasploitable 2|10.0.0.20|Servidor vulnerável (Lab)|
 
 ### Kali Linux (Atacante)
 - **IP:** `10.0.0.10/24`
@@ -33,9 +40,9 @@ As VMs utilizadas neste laboratório foram configuradas em uma rede interna priv
     sudo ip link set eth0 up
     ```
 
----
+<br>
 
-## Enumeração de Serviços Disponíveis
+## 🔍 Enumeração de Serviços Disponíveis
 
 Foi utilizado o **Nmap** para identificar serviços rodando no alvo:
 ```bash
@@ -46,9 +53,9 @@ nmap -sV 10.0.0.20
 - Portas 139/445/tcp: SMB (Samba smbd 3.X)
 Esses serviços são frequentemente alvos de ataques de força bruta e password spraying devido à sua exposição e configuração insegura.
 
----
+<br>
 
-## Criação de lista de usuários e lista de senhas
+## 📋 Criação de lista de usuários e lista de senhas
 
 Para os testes, foram utilizadas listas de usuários e senhas.
 
@@ -74,9 +81,9 @@ EOF
 ```
 Esse comando captura tudo o que for digitado no terminal até digitarmos **EOF**.
 
----
+<br>
 
-## Ataques realizados
+## ⚡ Ataques realizados
 
 ### 1. Força Bruta em FTP
 Comando utilizado: 
@@ -93,9 +100,9 @@ medusa -h 10.0.0.20 -U users.txt -P passwords.txt -M smbnt
 ```
 Este ataque testa combinações de usuários e senhas no serviço SMB, buscando acessos não autorizados e enumerando usuários válidos.
 
----
+<br>
 
-## Medidas de Prevenção e Hardening
+## 🛡️ Medidas de Prevenção e Hardening
 Para mitigar os riscos de ataques de força bruta (FTP) e enumeração/spraying (SMB) demonstrados neste laboratório, as seguintes práticas de segurança são recomendadas:
 
 ### 1. Fortalecimento de Credenciais (Password Policy)
@@ -117,9 +124,10 @@ Um **firewall bem configurado** limita o acesso aos serviços, reduzindo a expos
 - **Fail2Ban:** Implementar ferramentas de prevenção de intrusão que monitoram os logs em tempo real e banem automaticamente, via firewall, IPs que apresentarem comportamento suspeito de força bruta.
 - **Desativação de Contas Padrão:** Renomear usuários administradores (admin, root) e remover contas de demonstração que acompanham instalações padrão de softwares.
 - **Gestão de Patches e Atualizações Críticas:** Manter o Kernel do Sistema Operacional e todos os pacotes de serviços (como vsftpd ou samba) rigorosamente atualizados. A maioria dos ataques exploram vulnerabilidades conhecidas (CVEs) para as quais já existem correções.
----
 
-## Observações
+<br>
+
+## 📝 Observações
 
 - Todos os testes foram realizados em ambiente controlado e isolado.
 - O Metasploitable 2 é uma máquina intencionalmente vulnerável, destinada exclusivamente para fins educacionais.
