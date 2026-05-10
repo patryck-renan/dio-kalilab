@@ -127,5 +127,11 @@ Um **firewall bem configurado** limita o acesso aos serviços, reduzindo a expos
 
 ---
 
-
-
+<div align="center">
+    Desenvolvido por <strong><a href="https://www.linkedin.com/in/patryck-pereira-5104a6140/">Patryck Pereira</a></strong>.<br>
+    Projeto parte do Bootcamp de Cibersegurança da DIO.
+    <br><br>
+    <a href="https://web.dio.me/home">
+        <img src="https://img.shields.io/badge/Desafio-DIO-0077B6?style=for-the-badge" alt="Desafio DIO Badge">
+    </a>
+</div>
